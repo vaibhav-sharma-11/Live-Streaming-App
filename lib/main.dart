@@ -11,8 +11,6 @@ Future main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,9 +25,7 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  /// Users who use the same liveID can join the same live streaming.
-  final liveTextCtrl =
-  TextEditingController(text: Random().nextInt(10000).toString());
+  final liveTextCtrl = TextEditingController(text: Random().nextInt(10000).toString());
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +41,11 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('User ID:$userID'),
-            const Text('Please test with two or more devices'),
             TextFormField(
               controller: liveTextCtrl,
               decoration: const InputDecoration(labelText: 'join a live by id'),
             ),
             const SizedBox(height: 20),
-            // click me to navigate to LivePage
             ElevatedButton(
               style: buttonStyle,
               child: const Text('Start a live'),
@@ -62,7 +56,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            // click me to navigate to LivePage
             ElevatedButton(
               style: buttonStyle,
               child: const Text('Watch a live'),
@@ -102,8 +95,8 @@ class LivePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ZegoUIKitPrebuiltLiveStreaming(
-        appID: appID,// Fill in the appID that you get from ZEGOCLOUD Admin Console.
-        appSign: appSign,// Fill in the appSign that you get from ZEGOCLOUD Admin Console.
+        appID: appID,
+        appSign: appSign,
         userID: userID,
         userName: 'user_${userID}',
         liveID: liveID,
